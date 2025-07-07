@@ -39,7 +39,7 @@ export class MovieService {
   createMovie(title: string) {
     const movie: Movie = {
       id: this.idCounter++,
-      title: title,
+      title: '',
     };
 
     this.movies.push(movie);
