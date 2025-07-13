@@ -2,6 +2,7 @@ import { UpdateMovieDto } from './dto/update-movie.dto';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateMovieDto } from './dto/create-movie.dto';
 import { Movie } from './entity/movie.entity';
+import { number } from 'joi';
 
 @Injectable()
 export class MovieService {
@@ -45,7 +46,9 @@ export class MovieService {
     const movie: Movie = {
       id: this.idCounter++,
       ...createMovieDto,
-      // description: 'test',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      version: 0,
     };
 
     this.movies.push(movie);
